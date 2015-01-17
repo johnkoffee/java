@@ -5,17 +5,24 @@
  */
 package taska2;
 
-/**
- *
- * @author r0man_000
- */
+import java.util.Map;
+import java.util.HashMap;
+
 public class MainClass {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Map<String, String> login = new HashMap<String, String>();
+        login.put("admin", "admin");
+        login.put("user0", "qwerty");
+        login.put("user1", "123456");
+        
+        MyPrintStream mps = new MyPrintStream(System.out);
+        mps.print(login);
+        mps.println(login);
+        mps.close();
     }
     
 }

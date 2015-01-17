@@ -9,10 +9,6 @@ import java.util.*;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-/**
- *
- * @author r0man_000
- */
 public class PeopleTest{
     Random rand;
     People people;

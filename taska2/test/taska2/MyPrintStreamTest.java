@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package taska2;
 
 import java.io.ByteArrayOutputStream;
@@ -17,54 +12,45 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-/**
- *
- * @author r0man_000
- */
 public class MyPrintStreamTest {
-    OutputStream outputStream = null;
-    Map<Integer, String> hierarchy = null;        
+    OutputStream stream = null;
+    Map<String, String> map = null;        
     
     @Before
-    public void setUp() {
-        outputStream = new ByteArrayOutputStream();
-        hierarchy = new HashMap<Integer, String>();
+    public void initTest() {
+        System.out.print("Begin test: ");
+        stream = new ByteArrayOutputStream();
+        map = new HashMap<String, String>();
     }
     
     @After
-    public void tearDown() throws IOException {
-        outputStream.close();
-        hierarchy.clear();
+    public void finTest() throws IOException {
+        stream.close();
+        map.clear();
     }
 
-    /**
-     * Test of print method, of class MyPrintStream.
-     */
-    @Test
+   @Test
     public void testPrint() {
-        System.out.println("print");
-        Map content = null;
-        MyPrintStream instance = null;
-        instance.print(content);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        System.out.println("Print()");
+        MyPrintStream mps = new MyPrintStream(stream);
+        map.put("key0", "value0");
+        map.put("key1", "value1");
+        mps.print(map);
+        assertEquals(map.toString(), stream.toString());
     }
 
-    /**
-     * Test of println method, of class MyPrintStream.
-     */
     @Test
     public void testPrintln() {
-        System.out.println("println");
-        Map content = null;
-        MyPrintStream instance = null;
-        instance.println(content);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        System.out.println("Println()");
+        MyPrintStream mps = new MyPrintStream(stream);
+        map.put("key0", "value0");
+        map.put("key1", "value1");
+        mps.println(map);
+        assertEquals(map.toString() + "\r\n", stream.toString());
     }
     
     public void fillMap( Map<Integer, String> map ){
         map.clear();
-        map.put(1                                                                                                                                                                                                                                                                                           , "")
+        map.put(1, "");
     }
 }

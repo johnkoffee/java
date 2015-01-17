@@ -6,6 +6,7 @@
 package taska2;
 
 import java.io.*;
+import java.util.Map;
 
 /**
  *
@@ -15,10 +16,10 @@ public class MyPrintStream extends PrintStream{
     public MyPrintStream(OutputStream out){
         super(out);
     }
-    public print(Map content){
-        super.print(content);
+    public void print(Map content){
+        super.print(content.toString());
     }
-    public println(Map content){
-        super.println(content);
+    public void println(Map content){
+        super.println(content.toString());
     }
 }
